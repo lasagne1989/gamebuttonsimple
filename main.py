@@ -13,10 +13,12 @@ class Timer:
     def __init__(self, master):
         self.master = master
         # Set up screen and labels
-        root.geometry("320x240")
-        self.display1 = Label(master, font=("Arial", 25))
+        root.config(cursor="none")
+        #root.geometry("320x240")
+        root.attributes('-fullscreen', True)
+        self.display1 = Label(master, font=("Arial", 24), wraplength=318)
         self.display1.place(relx=.5, rely=.5, anchor=S)
-        self.display2 = Label(master, font=("Arial", 25))
+        self.display2 = Label(master, font=("Arial", 35))
         self.display2.place(relx=.5, rely=.5, anchor=N)
         self.display1['text'] = 'Game On!'
         # Set up main button press
@@ -24,9 +26,9 @@ class Timer:
         reg_event.setup()
         reg_event.event()
         # Press count variable
-        self.time_limit = 5
+        self.time_limit = 30
         self.press_count = 0
-        # Pick fisrt player and set up cycle
+        # Pick first player and set up cycle
         people = ['Gordon', 'Claire', 'Emma', 'Steve']
         player_count = len(people)
         player_num = random.randint(0, player_count - 1)
